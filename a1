@@ -1,0 +1,75 @@
+import { useState } from 'react';
+import './App.css';
+
+// Define MobileMenu component
+const MobileMenu = () => {
+  return (
+    <div className={'mobile-menu'}>
+      <a href='#home'>Home</a>
+      <a href='#news'>News</a>
+      <a href='#shop'>Shop</a>
+      <a href='#contact'>Contact</a>
+      <a href='#about'>About</a>
+      <a href='#privacy'>Privacy Policy</a>
+    </div>
+  );
+};
+
+function App() {
+  const [isShown, setIsShown] = useState(false);
+ const [navbar, setNavbar] = useState('Navbar')
+  const toggleMobileMenu = () => {
+    setIsShown(!isShown);
+  };
+
+  return (
+    <>
+      <div className='topnav'>
+      
+        <div className='logo'>
+          NAVBAR<span>CODE</span>
+        </div>
+
+        
+        <div className='menu'>
+        
+            
+          <a href='#home' className='active-link'>
+            Home
+          </a>
+      
+          <a href='#news'>News</a>
+          <a href='#shop'>Shop</a>
+          <a href='#contact'>Contact</a>
+          <a href='#about'>About</a>
+        </div>
+
+        
+        <button className='show-mobile-menu-button' onClick={toggleMobileMenu}>
+          &#8801;
+        </button>
+      </div>
+
+    
+      {isShown && <MobileMenu />}
+      {isShown && (
+        <button className='close-mobile-menu-button' onClick={toggleMobileMenu}>
+          &times;
+        </button>
+      )}
+
+    
+      <div className='content'>
+        <h2>Welcome to navbar</h2>
+        <p>Responsive top navbar{setNavbar}  with React and pure CSS<br></br> 
+         a navigation bar can extend or collapse, depending on the screen size.<br></br>
+         navigation bar is a section of a graphical user interface intended to aid visitors in accessing information.<br></br>
+          Navigation bars are implemented in file browsers,<br></br>
+          web browsers and as a design element of some web sites.</p>
+        
+      </div>
+    </>
+  );
+}
+
+export default App;
